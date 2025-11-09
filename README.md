@@ -8,7 +8,7 @@ Final project for the Building AI course
 
 ## Summary
 
-Using linear regression model, optimized by the least squares method, to predict apartment prices (without debt) in Helsinki's region called South-Haaga. The training data for the linear regression model comes from a public source that follows apartments sold (via real-estate agents) in the region during the last 12 months.
+Using linear regression model, optimized by the least squares method, to predict apartments' debt-free prices anywhere in Finland using publicly available data.
 
 ## Background
 
@@ -16,7 +16,7 @@ The solution helps people predict an apartment's current price anywhere in Finla
 
 ## How is it used?
 
-This logic of the solution is contained in the Python code below. The training data is based on Helsinki city's South-Haaga region, date 9.11.2025:
+This logic of the solution is contained in the Python code main() below. The example training data is based on Helsinki city's South-Haaga region, three room apartments, fetch date 9.11.2025:
 ```
 import numpy as np
 from io import StringIO
@@ -82,7 +82,7 @@ main()
 
 ## Data sources and AI methods
 
-The training data comes from aparments sold in the last 12 months in Helsinki South-Haaga region provided by the link below:
+The training data comes from aparments sold in the last 12 months in Finland. Below is a link to the data used in the code example above:
 [Asuntojen hintatiedot](https://asuntojen.hintatiedot.fi/haku/?c=Helsinki&renderType=renderTypeTable&cr=1&ps=00320&renderType=renderTypeTable&h=1&r=3&amin=60.0&amax=80.0&l=2&search=1&sf=3&so=d)
 
 Input: Size in square meters, Year when built, Floor number, Has an elevator, Apartment condition, Property is owned by the building
@@ -105,4 +105,4 @@ Publicly available data sources in Finland such as:
 * Asuntojen hintatiedot (Ministry of the Environment + KVKL) — transaction-level, last 12 months
 * Statistics Finland (StatFin) PxWeb – “Prices of dwellings in housing companies” — downloadable stats, long time series
 * Helsinki Region Infoshare (HRI) — city open data hub
-* ational Land Survey (Maanmittauslaitos) – Real Estate Price Register
+* National Land Survey (Maanmittauslaitos) – Real Estate Price Register.
