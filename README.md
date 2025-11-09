@@ -90,10 +90,7 @@ def main():
     x_test = np.delete(test_input, num_cols - 1, axis=1)
     y_test = test_input[:, -1]
 
-    # print out the linear regression coefficients
-    print(c)
-
-    # this will print out the predicted prics for the apartments in the test data set
+    # this will print out the predicted prices for the apartments in the test data set
     print(x_test @ c)
 
 main()
@@ -104,6 +101,9 @@ main()
 Where does your data come from? Do you collect it yourself or do you use data collected by someone else?
 If you need to use links, here's an example:
 [Twitter API](https://developer.twitter.com/en/docs)
+
+The training data comes from aparments sold in the last 12 months in Helsinki South-Haaga region provided by the link below:
+[Asuntojen hintatiedot](https://asuntojen.hintatiedot.fi/haku/?c=Helsinki&renderType=renderTypeTable&cr=1&ps=00320&renderType=renderTypeTable&h=1&r=3&amin=60.0&amax=80.0&l=2&search=1&sf=3&so=d)
 
 | Syntax      | Description |
 | ----------- | ----------- |
