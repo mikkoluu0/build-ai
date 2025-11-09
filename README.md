@@ -8,31 +8,15 @@ Final project for the Building AI course
 
 ## Summary
 
-Describe briefly in 2-3 sentences what your project is about. About 250 characters is a nice length! 
-
+Using linear regression model, optimized by the least squares method, to predict apartment prices (without debt) in Helsinki's region called South-Haaga. The training data for the linear regression model comes from a public source that follows apartments sold (via real-estate agents) in the region during the last 12 months.
 
 ## Background
 
-Which problems does your idea solve? How common or frequent is this problem? What is your personal motivation? Why is this topic important or interesting?
-
-This is how you make a list, if you need one:
-* problem 1
-* problem 2
-* etc.
-
+The solution helps people predict an apartment's current price anywhere in Finland using the publicly available data of a specific region whether a municipality or a city - even areas inside a city.
 
 ## How is it used?
 
-Describe the process of using the solution. In what kind situations is the solution needed (environment, time, etc.)? Who are the users, what kinds of needs should be taken into account?
-
-Images will make your README look nice!
-Once you upload an image to your repository, you can link link to it like this (replace the URL with file path, if you've uploaded an image to Github.)
-![Cat](https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg)
-
-If you need to resize images, you have to use an HTML tag, like this:
-<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Sleeping_cat_on_her_back.jpg" width="300">
-
-This is how you create code examples:
+This logic of the solution is contained in the Python code below. The training data is based on Helsinki city's South-Haaga region, date 9.11.2025:
 ```
 import numpy as np
 from io import StringIO
@@ -96,33 +80,29 @@ def main():
 main()
 ```
 
-
 ## Data sources and AI methods
-Where does your data come from? Do you collect it yourself or do you use data collected by someone else?
-If you need to use links, here's an example:
-[Twitter API](https://developer.twitter.com/en/docs)
 
 The training data comes from aparments sold in the last 12 months in Helsinki South-Haaga region provided by the link below:
 [Asuntojen hintatiedot](https://asuntojen.hintatiedot.fi/haku/?c=Helsinki&renderType=renderTypeTable&cr=1&ps=00320&renderType=renderTypeTable&h=1&r=3&amin=60.0&amax=80.0&l=2&search=1&sf=3&so=d)
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+Input: Size in square meters, Year when built, Floor number, Has an elevator, Apartment condition, Property is owned by the building
+Output: Price in euros without debt
 
 ## Challenges
 
-What does your project _not_ solve? Which limitations and ethical considerations should be taken into account when deploying a solution like this?
+The training data contains only apartments sold in the last 12 months and only by real estate companies (not individuals). Inputs like "Has an elevator", "Apartment condition" and "Property is owned by the building" are not so simple to present in numerical format unlike "Size in square meters" and "Year when built". 
+
+Due to these facts, and probably many others that I don't even consider here, the model might be not so accurate.
 
 ## What next?
 
-How could your project grow and become something even more? What kind of skills, what kind of assistance would you  need to move on? 
-
+The app could fetch data via REST API from the public source and offer an UI to input filters used in the API call and test data. The app could be deployed in the cloud. 
 
 ## Acknowledgments
 
-* list here the sources of inspiration 
-* do not use code, images, data etc. from others without permission
-* when you have permission to use other people's materials, always mention the original creator and the open source / Creative Commons licence they've used
-  <br>For example: [Sleeping Cat on Her Back by Umberto Salvagnin](https://commons.wikimedia.org/wiki/File:Sleeping_cat_on_her_back.jpg#filelinks) / [CC BY 2.0](https://creativecommons.org/licenses/by/2.0)
-* etc
+Publicly available data sources in Finland such as:
+
+* Asuntojen hintatiedot (Ministry of the Environment + KVKL) — transaction-level, last 12 months
+* Statistics Finland (StatFin) PxWeb – “Prices of dwellings in housing companies” — downloadable stats, long time series
+* Helsinki Region Infoshare (HRI) — city open data hub
+* ational Land Survey (Maanmittauslaitos) – Real Estate Price Register
