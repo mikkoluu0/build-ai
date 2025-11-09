@@ -93,11 +93,11 @@ Output: Price in euros without debt.
 
 The training data contains only apartments sold in the last 12 months and only by real estate companies (not individuals). Inputs like "Has an elevator", "Apartment condition" and "Property is owned by the building" are not so simple to present in numerical format unlike "Size in square meters" and "Year when built". 
 
-Due to these facts, and probably many others that I don't even consider here, the model might be not so accurate.
+Due to these facts, and probably many others that I don't even consider here, the model's accuracy could be improved in the future.
 
 ## What next?
 
-The app could fetch data via REST API from the public source and offer an UI to input filters used in the API call and test data. The app could be deployed in the cloud. 
+The app could fetch data via REST API from the public source and offer an UI to input filters used in the API call and input the test data. The app could be deployed in the cloud. 
 
 ## Acknowledgments
 
