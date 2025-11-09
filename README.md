@@ -34,18 +34,67 @@ If you need to resize images, you have to use an HTML tag, like this:
 
 This is how you create code examples:
 ```
+import numpy as np
+from io import StringIO
+
+train_string = '''
+67 1959 3 0 2 1 364000
+68 2024 2 1 2 1 480000
+60 1957 2 0 2 1	325000
+72.5 1987 1 0 1 1 265000
+72 1970 3 1 2 1 405000
+61.4 1959 3 0 2 1 338000
+80 2021 2 1 2 0 386000
+65 1958 3 0 0 1 303000
+66 1959 2 0 2 1 338000
+75 1958 3 0 1 1 375000
+63 1960 2 0 1 1 255000
+73 1953 1 0 1 1 369000
+80 1960 1 0 2 1	400000
+69 1955	3 0 2 1 358000
+61 1966	1 0 2 1	295000
+68 1967	1 1 2 1	370000
+72 1959	3 0 2 1	390300
+62.5 1959 2 0 2	1 360000
+67 1939	1 0 2 1	384000
+72 1970	2 1 2 1	186000
+70 1962	2 1 2 1	376000
+60 1963	1 1 2 0	321500
+64.5 1984 3 0 1	1 299000
+68 1962	1 0 1 1	280000
+'''
+
+test_string = '''
+74 1956 4 0 2 1 420000
+68 1970 4 0 2 1 420000
+'''
+
 def main():
-   countries = ['Denmark', 'Finland', 'Iceland', 'Norway', 'Sweden']
-   pop = [5615000, 5439000, 324000, 5080000, 9609000]   # not actually needed in this exercise...
-   fishers = [1891, 2652, 3800, 11611, 1757]
+    np.set_printoptions(precision=1)    # this just changes the output settings for easier reading
+    
+    # read in the training data and separate it to x_train and y_train
+    train_input_file = StringIO(train_string)
+    train_input = np.genfromtxt(train_input_file, skip_header=1)
+    num_cols = train_input.shape[1]
+    x_train = np.delete(train_input, num_cols - 1, axis=1)
+    y_train = train_input[:, -1]
 
-   totPop = sum(pop)
-   totFish = sum(fishers)
+    # fit a linear regression model to the data and get the coefficients
+    c = np.linalg.lstsq(x_train, y_train)[0] # estimated coefficients #c = np.asarray([])
 
-   # write your solution here
+    # read in the test data and separate x_test from it
+    test_input_file = StringIO(test_string)
+    test_input = np.genfromtxt(test_input_file, skip_header=1)
+    
+    num_cols = test_input.shape[1]
+    x_test = np.delete(test_input, num_cols - 1, axis=1)
+    y_test = test_input[:, -1]
 
-   for i in range(len(countries)):
-      print("%s %.2f%%" % (countries[i], 100.0))    # current just prints 100%
+    # print out the linear regression coefficients
+    print(c)
+
+    # this will print out the predicted prics for the apartments in the test data set
+    print(x_test @ c)
 
 main()
 ```
