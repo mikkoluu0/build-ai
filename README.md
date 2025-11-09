@@ -85,8 +85,9 @@ main()
 The training data comes from aparments sold in the last 12 months in Finland. Below is a link to the data used in the code example above:
 [Asuntojen hintatiedot](https://asuntojen.hintatiedot.fi/haku/?c=Helsinki&renderType=renderTypeTable&cr=1&ps=00320&renderType=renderTypeTable&h=1&r=3&amin=60.0&amax=80.0&l=2&search=1&sf=3&so=d)
 
-Input: Size in square meters, Year when built, Floor number, Has an elevator, Apartment condition, Property is owned by the building
-Output: Price in euros without debt
+Input: Size in square meters, Year when built, Floor number, Has an elevator, Apartment condition, Property is owned by the building.
+
+Output: Price in euros without debt.
 
 ## Challenges
 
